@@ -1,0 +1,14 @@
+*.js
+*.jsx
+*.ts
+*.tsx
+*.png
+*.eot
+*.ttf
+*.woff
+
+out
+dist
+node_modules
+public
+.vscode
