@@ -1,0 +1,62 @@
+/* 开发过程中会不断添加和修改 */
+:root {
+  /* 特殊场景 */
+  --g-gap-xl: 28px;
+
+  /* 模块间距，例：功能区划分*/
+  --g-gap-lg: 22px;
+
+  /* 不同类间距（一个字体宽度），例：导航标签 */
+  --g-gap-md: 16px;
+
+  /* 同类间距（半个字体宽度），例：长列表标签*/
+  --g-gap-sm: 8px;
+
+  /* 特殊场景，例：图标和文字间距 */
+  --g-gap-xs: 4px;
+
+  /*  */
+
+  /* 特殊场景 */
+  --g-font-size-xl: 18px;
+
+  /* 标题字体大小 */
+  --g-font-size-lg: 16px;
+
+  /* 默认字体大小 */
+  --g-font-size-md: 14px;
+
+  /* 最小字体大小 */
+  --g-font-size-sm: 12px;
+
+  /*  */
+
+  --g-border-radius-md: 4px;
+  --g-border-radius-sm: 2px;
+
+  --g-transition-duration: 0.3s;
+  --g-box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+
+  --g-color-primary: #409eff;
+  --g-color-success: #67c23a;
+  --g-color-warning: #e6a23c;
+  --g-color-danger: #f56c6c;
+  --g-color-error: #f56c6c;
+  --g-color-info: #909399;
+  --g-color-white: #ffffff;
+  --g-color-black: #000000;
+  --g-bg-color: #f5f7fa;
+
+  --g-border: 1px solid #e5e7eb;
+
+  --g-text-color-primary: #303133;
+  --g-text-color-regular: #606266;
+  --g-text-color-secondary: #909399;
+  --g-text-color-placeholder: #c0c4cc;
+}
+
+html body {
+  font-family: '微软雅黑', '黑体', '宋体', sans-serif;
+  font-size: var(--g-font-size-md);
+  color: var(--g-text-color-primary);
+}

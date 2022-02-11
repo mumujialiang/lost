@@ -21,6 +21,7 @@ specifiers:
   husky: ^7.0.4
   jsdom: ^19.0.0
   lint-staged: ^12.3.3
+  normalize.css: ^8.0.1
   pinia: ^2.0.11
   prettier: ^2.5.1
   start-server-and-test: ^1.14.0
@@ -32,6 +33,7 @@ specifiers:
   vue-tsc: ^0.31.1
 
 dependencies:
+  normalize.css: 8.0.1
   pinia: 2.0.11_typescript@4.5.5+vue@3.2.30
   vue: 3.2.30
   vue-router: 4.0.12_vue@3.2.30
@@ -3791,6 +3793,10 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+    dev: false
 
   /npm-run-path/4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
