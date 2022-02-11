@@ -31,15 +31,15 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 #app {
   max-width: 1280px;
-  margin: 0 auto;
   padding: 2rem;
+  margin: 0 auto;
 
   font-weight: normal;
 }
 
 header {
-  line-height: 1.5;
   max-height: 100vh;
+  line-height: 1.5;
 }
 
 .logo {
@@ -49,8 +49,8 @@ header {
 
 a,
 .green {
-  text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
+  text-decoration: none;
   transition: 0.4s;
 }
 
@@ -62,9 +62,9 @@ a,
 
 nav {
   width: 100%;
+  margin-top: 2rem;
   font-size: 12px;
   text-align: center;
-  margin-top: 2rem;
 }
 
 nav a.router-link-exact-active {
@@ -105,8 +105,8 @@ nav a:first-of-type {
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
     flex-wrap: wrap;
+    place-items: flex-start;
   }
 
   .logo {
@@ -114,12 +114,11 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
     padding: 1rem 0;
     margin-top: 1rem;
+    margin-left: -1rem;
+    font-size: 1rem;
+    text-align: left;
   }
 }
 </style>
