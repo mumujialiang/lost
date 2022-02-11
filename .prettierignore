@@ -1,0 +1,14 @@
+node_modules
+dist
+.vscode
+
+out
+public
+src/auto-imports.d.ts
+src/http/openapi/index.json
+src/http/openapi/types.ts
+
+package-lock.json
+pnpm-lock.yaml
+.eslintrc-auto-import.json
+components.d.ts
