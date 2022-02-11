@@ -59,6 +59,7 @@
     "unplugin-icons": "^0.13.1",
     "vite": "^2.7.13",
     "vite-plugin-inspect": "^0.3.14",
+    "vite-plugin-md": "^0.11.8",
     "vitest": "^0.2.5",
     "vue-tsc": "^0.31.1"
   },
