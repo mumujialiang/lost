@@ -8,6 +8,7 @@ import ComMD from './test.md'
   <div>new component</div>
   <carbon-warning />
   <ComMD />
+  <el-button type="primary">Primary</el-button>
 </template>
 
 <style lang="scss" scoped></style>
