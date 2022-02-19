@@ -12,7 +12,7 @@ api({
   loadingRef: loading,
   responseText: true
 }).then(res => {
-  console.log(res)
+  console.log(res as Global.ApiResponse<'/index/a'>)
 })
 </script>
 

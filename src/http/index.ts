@@ -7,6 +7,9 @@ import { setResponseText } from './responseText'
 import type { AllApiHasPrefix } from './apiTypes/index'
 import type { RequestOption } from './types'
 
+/*
+TODO: option.data 的 typing 应该根据实际数据控制是否必传
+*/
 export const api = <T extends keyof AllApiHasPrefix>(
   option: {
     flag: T
