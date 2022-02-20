@@ -10,6 +10,19 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
+      path: '/nav',
+      component: () => import('../views/nav/ComNav.vue'),
+      children: [
+        {
+          path: 'index',
+          meta: {
+            title: '首页'
+          },
+          component: () => import('../views/index/IndexView.vue')
+        }
+      ]
+    },
+    {
       path: '/test',
       meta: {
         title: '测试'
