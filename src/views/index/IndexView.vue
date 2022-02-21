@@ -1,7 +1,44 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import ComMap from './components/map/ComMap.vue'
+</script>
 
 <template>
-  <div>new component</div>
+  <div class="page">
+    <div class="map-wrap">
+      <ComMap />
+    </div>
+
+    <div class="sidebar">
+      <div class="control"></div>
+      <div class="list"></div>
+    </div>
+  </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.page {
+  display: flex;
+  overflow: hidden;
+  .map-wrap {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 100%;
+    overflow: hidden;
+
+    .control {
+      overflow: hidden;
+    }
+    .list {
+      flex: 1;
+      overflow: hidden;
+    }
+  }
+}
+</style>
