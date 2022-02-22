@@ -1,11 +1,14 @@
 <script lang="ts" setup>
 import ComMap from './components/map/ComMap.vue'
+import { useLoadPoint } from './composable/loadPoints/index'
+
+const { points } = useLoadPoint()
 </script>
 
 <template>
   <div class="page">
     <div class="map-wrap">
-      <ComMap />
+      <ComMap :points="points" />
     </div>
 
     <div class="sidebar">

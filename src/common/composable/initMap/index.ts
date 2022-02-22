@@ -79,6 +79,7 @@ export const useInitMap = () => {
         map.addControl(new AMap.MapType())
 
         resolve({
+          AMap,
           map,
           setCurrentPosition
         })

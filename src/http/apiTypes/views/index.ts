@@ -4,7 +4,21 @@
     response: unknown
   }>
 */
+// 推荐使用使用query create update remove ，区分批量可使用复数，真实接口标识根据实际调整
+
 export interface Index {
+  queryMapPoints: {
+    response: {
+      points: {
+        lng: number
+        lat: number
+        img: string
+        id: string
+        description: string
+        disable: boolean
+      }[]
+    }
+  }
   a: {
     request: {
       a: number

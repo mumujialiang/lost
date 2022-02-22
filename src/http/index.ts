@@ -41,3 +41,8 @@ export const api = <T extends keyof AllApiHasPrefix>(
 
   return promise as Promise<AllApiHasPrefix[T]['response']>
 }
+
+export type ApiResponse<T extends keyof AllApiHasPrefix> =
+  AllApiHasPrefix[T]['response']
+export type ApiRequest<T extends keyof AllApiHasPrefix> =
+  AllApiHasPrefix[T]['request']
