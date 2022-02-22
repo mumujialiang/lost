@@ -12,9 +12,6 @@ module.exports = {
   env: {
     'vue/setup-compiler-macros': true
   },
-  globals: {
-    Global: true
-  },
   overrides: [
     {
       files: ['cypress/integration/**.spec.{js,ts,jsx,tsx}'],
