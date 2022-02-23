@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import ComMap from './components/map/ComMap.vue'
+import ComControl from './components/control/ComControl.vue'
 import { useLoadPoint } from './composable/loadPoints/index'
 
-const { points } = useLoadPoint()
+const { points, addr, date } = useLoadPoint()
 </script>
 
 <template>
@@ -12,7 +13,9 @@ const { points } = useLoadPoint()
     </div>
 
     <div class="sidebar">
-      <div class="control"></div>
+      <div class="control">
+        <ComControl v-model:addr="addr" v-model:date="date" />
+      </div>
       <div class="list"></div>
     </div>
   </div>
