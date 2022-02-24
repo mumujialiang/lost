@@ -15,6 +15,7 @@
   ],
   "plugins": ["stylelint-order"],
   "rules": {
-    "no-empty-source": null
+    "no-empty-source": null,
+    "no-descending-specificity": null
   }
 }

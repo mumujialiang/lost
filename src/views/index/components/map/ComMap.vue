@@ -1,15 +1,26 @@
 <script lang="ts" setup>
+import ComInfoWindow from './components/infoWindow/ComInfoWindow.vue'
 import { useInitMap } from '@/common/composable/initMap/index'
 import { usePointCover } from './composable/pointCover/index'
+import { useImgCover } from './composable/imgCover/index'
 import { toRef } from 'vue'
 import type { ApiResponse } from '@http'
+import type { Emits } from './types'
 
 const props = defineProps<{
   points: ApiResponse<'/index/queryMapPoints'>['points']
+  activeId: string
 }>()
+
+const rawEmit = defineEmits(['update:active-id', 'change-show-info-window'])
+const emit: Emits = rawEmit
 
 const { mapElement, mapPromise } = useInitMap()
 const { pointElements } = usePointCover({
+  mapPromise,
+  points: toRef(props, 'points')
+})
+const { imgElements } = useImgCover({
   mapPromise,
   points: toRef(props, 'points')
 })
@@ -18,10 +29,12 @@ const { pointElements } = usePointCover({
 <template>
   <div class="wrap">
     <div ref="mapElement" class="map"></div>
-    <div>
+    <div
+      v-for="(item, index) in props.points"
+      :key="item.id"
+      style="display: none"
+    >
       <div
-        v-for="(item, index) in props.points"
-        :key="index"
         :ref="
           el =>
             (pointElements[index] = {
@@ -30,10 +43,43 @@ const { pointElements } = usePointCover({
             })
         "
         class="point"
+        @click="emit('update:active-id', item.id)"
       >
-        <div class="inner" @click="item.disable = !item.disable"></div>
+        <div
+          class="inner"
+          @click="
+            emit('change-show-info-window', {
+              id: item.id,
+              show: true
+            })
+          "
+        ></div>
+      </div>
+      <div
+        v-show="!item.disable"
+        :ref="
+          el =>
+            (imgElements[index] = {
+              el,
+              id: item.id
+            })
+        "
+        @click="emit('update:active-id', item.id)"
+      >
+        <ComInfoWindow
+          :img="item.img"
+          :img-size="1"
+          :active="item.id === props.activeId"
+          @close="
+            emit('change-show-info-window', {
+              id: item.id,
+              show: item.disable
+            })
+          "
+        />
       </div>
     </div>
+    <div></div>
   </div>
 </template>
 

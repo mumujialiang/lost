@@ -1,15 +1,29 @@
 <script lang="ts" setup>
+import { ref } from 'vue'
 import ComMap from './components/map/ComMap.vue'
 import ComControl from './components/control/ComControl.vue'
 import { useLoadPoint } from './composable/loadPoints/index'
+import type { EmitDto } from './types'
 
 const { points, addr, date } = useLoadPoint()
+
+const activeId = ref('')
+const changeShowInfoWindow = ({ id, show }: EmitDto) => {
+  const target = points.value.find(({ id: targetId }) => targetId === id)
+  if (target) {
+    target.disable = !show
+  }
+}
 </script>
 
 <template>
   <div class="page">
     <div class="map-wrap">
-      <ComMap :points="points" />
+      <ComMap
+        v-model:active-id="activeId"
+        :points="points"
+        @change-show-info-window="changeShowInfoWindow"
+      />
     </div>
 
     <div class="sidebar">
