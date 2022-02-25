@@ -12,7 +12,7 @@ const props = defineProps<{
   activeId: string
 }>()
 
-const rawEmit = defineEmits(['update:active-id', 'change-show-info-window'])
+const rawEmit = defineEmits(['update:active-id', 'change-disable-state'])
 const emit: Emits = rawEmit
 
 const { mapElement, mapPromise } = useInitMap()
@@ -48,9 +48,9 @@ const { imgElements } = useImgCover({
         <div
           class="inner"
           @click="
-            emit('change-show-info-window', {
+            emit('change-disable-state', {
               id: item.id,
-              show: true
+              disable: false
             })
           "
         ></div>
@@ -71,9 +71,9 @@ const { imgElements } = useImgCover({
           :img-size="1"
           :active="item.id === props.activeId"
           @close="
-            emit('change-show-info-window', {
+            emit('change-disable-state', {
               id: item.id,
-              show: item.disable
+              disable: !item.disable
             })
           "
         />

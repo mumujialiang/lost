@@ -8,10 +8,10 @@ import type { EmitDto } from './types'
 const { points, addr, date } = useLoadPoint()
 
 const activeId = ref('')
-const changeShowInfoWindow = ({ id, show }: EmitDto) => {
+const changeDisableState = ({ id, disable }: EmitDto) => {
   const target = points.value.find(({ id: targetId }) => targetId === id)
   if (target) {
-    target.disable = !show
+    target.disable = disable
   }
 }
 </script>
@@ -22,7 +22,7 @@ const changeShowInfoWindow = ({ id, show }: EmitDto) => {
       <ComMap
         v-model:active-id="activeId"
         :points="points"
-        @change-show-info-window="changeShowInfoWindow"
+        @change-disable-state="changeDisableState"
       />
     </div>
 
