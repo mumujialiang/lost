@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import ComMap from './components/map/ComMap.vue'
 import ComControl from './components/control/ComControl.vue'
+import ComList from './components/list/ComList.vue'
 import { useLoadPoint } from './composable/loadPoints/index'
 import type { EmitDto } from './types'
 
@@ -30,7 +31,13 @@ const changeDisableState = ({ id, disable }: EmitDto) => {
       <div class="control">
         <ComControl v-model:addr="addr" v-model:date="date" />
       </div>
-      <div class="list"></div>
+      <div class="list">
+        <ComList
+          v-model:active-id="activeId"
+          :points="points"
+          @change-disable-state="changeDisableState"
+        />
+      </div>
     </div>
   </div>
 </template>

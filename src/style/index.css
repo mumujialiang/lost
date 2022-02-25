@@ -56,7 +56,13 @@
 }
 
 html body {
+  box-sizing: border-box;
   font-family: '微软雅黑', '黑体', '宋体', sans-serif;
   font-size: var(--g-font-size-md);
   color: var(--g-text-color-primary);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
