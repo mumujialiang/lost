@@ -4,6 +4,7 @@ import { useInitMap } from '@/common/composable/initMap/index'
 import { usePointCover } from './composable/pointCover/index'
 import { useImgCover } from './composable/imgCover/index'
 import { useLoading } from './composable/loading/index'
+import { useShadeCover } from './composable/shadeCover/index'
 import { toRef } from 'vue'
 import type { ApiResponse } from '@http'
 import type { Emits } from './types'
@@ -16,6 +17,7 @@ const props = defineProps<{
 
 const rawEmit = defineEmits([
   'update:active-id',
+  'update:location',
   'change-disable-state',
   'look-details'
 ])
@@ -31,6 +33,11 @@ const { imgElements } = useImgCover({
   points: toRef(props, 'points')
 })
 const { loadingElement } = useLoading()
+// XXX: 此处有可能不合理的使用方式，包括上面有关 mapPromise 的
+useShadeCover({
+  mapPromise,
+  emit
+})
 </script>
 
 <template>

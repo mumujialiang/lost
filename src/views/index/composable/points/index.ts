@@ -2,7 +2,7 @@ import { ref, type Ref } from 'vue'
 import { useStorage } from '@vueuse/core'
 import dayjs from 'dayjs'
 import { api, type ApiResponse } from '@http'
-import type { EmitDto } from '../../types'
+import type { EmitDto, Location } from '../../types'
 
 export const usePoints = () => {
   const points: Ref<ApiResponse<'/index/queryMapPoints'>['points']> = ref([])
@@ -10,6 +10,11 @@ export const usePoints = () => {
   const date = ref(dayjs().format('YYYY-MM-DD'))
   const disablePoints = useStorage<string[]>('disablePoints', [])
   const pointsLoading = ref(false)
+  const initialLocation: Location = {
+    lat: [0, 0],
+    lng: [0, 0]
+  }
+  const location: Ref<Location> = ref(initialLocation)
 
   const changeDisableState = ({ id, disable }: EmitDto) => {
     const target = points.value.find(({ id: targetId }) => targetId === id)
@@ -39,7 +44,8 @@ export const usePoints = () => {
     points,
     addr,
     date,
-    changeDisableState,
-    pointsLoading
+    location,
+    pointsLoading,
+    changeDisableState
   }
 }
