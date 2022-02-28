@@ -4,20 +4,13 @@ import ComMap from './components/map/ComMap.vue'
 import ComControl from './components/control/ComControl.vue'
 import ComList from './components/list/ComList.vue'
 import ComDetails from './components/details/ComDetails.vue'
-import { useLoadPoint } from './composable/loadPoints/index'
+import { usePoints } from './composable/points/index'
 import { useDetails } from './composable/details/index'
-import type { EmitDto } from './types'
 
-const { points, addr, date } = useLoadPoint()
+const { points, addr, date, changeDisableState } = usePoints()
 const { details, detailsLoading, showDetails, loadDetails } = useDetails()
 
 const activeId = ref('')
-const changeDisableState = ({ id, disable }: EmitDto) => {
-  const target = points.value.find(({ id: targetId }) => targetId === id)
-  if (target) {
-    target.disable = disable
-  }
-}
 </script>
 
 <template>
