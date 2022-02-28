@@ -10,7 +10,10 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'change-disable-state', value: EmitDto): void
-  (e: 'look-details', value: string): void
+  (
+    e: 'look-details',
+    value: ApiResponse<'/index/queryMapPoints'>['points'][number]['presetPayLoad']['details']
+  ): void
   (e: 'update:activeId', value: string): void
 }>()
 </script>
@@ -27,19 +30,18 @@ const emit = defineEmits<{
           disable: item.disable,
           enable: !item.disable
         }"
+        @click="emit('update:activeId', item.id)"
       >
         <div class="inner">
-          <el-image
-            class="el-image"
-            :src="item.img"
-            fit="cover"
-            @click="!item.disable && emit('update:activeId', item.id)"
-          />
+          <el-image class="el-image" :src="item.img" fit="cover" />
           <div class="disable-mask">
             <carbon-close />
           </div>
           <div class="mask">
-            <div class="check-btn" @click="emit('look-details', item.id)">
+            <div
+              class="check-btn"
+              @click="emit('look-details', item.presetPayLoad.details)"
+            >
               查看
             </div>
             <div

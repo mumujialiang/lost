@@ -9,6 +9,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'close'): void
+  (e: 'look-details'): void
 }>()
 </script>
 
@@ -30,7 +31,7 @@ const emit = defineEmits<{
           fit="cover"
         ></el-image>
 
-        <div class="mask">
+        <div class="mask" @click="emit('look-details')">
           <div class="check-btn">查看</div>
         </div>
       </div>

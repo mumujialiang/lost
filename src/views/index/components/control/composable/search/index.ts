@@ -11,7 +11,6 @@ export const useSearch = () => {
     autoComplete = new AMap.Autocomplete({
       city: '全国'
     })
-    console.log(AMap, autoComplete)
   })
 
   // 搜索

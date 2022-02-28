@@ -16,7 +16,19 @@ export interface Index {
         id: string
         description: string
         disable: boolean
+        presetPayLoad: {
+          details: unknown
+        }
       }[]
+    }
+  }
+  queryDetails: {
+    response: {
+      id: string
+      img: string
+      time: string
+      description: string
+      tel: string
     }
   }
   a: {

@@ -12,7 +12,11 @@ const props = defineProps<{
   activeId: string
 }>()
 
-const rawEmit = defineEmits(['update:active-id', 'change-disable-state'])
+const rawEmit = defineEmits([
+  'update:active-id',
+  'change-disable-state',
+  'look-details'
+])
 const emit: Emits = rawEmit
 
 const { mapElement, mapPromise } = useInitMap()
@@ -70,6 +74,7 @@ const { imgElements } = useImgCover({
           :img="item.img"
           :img-size="1"
           :active="item.id === props.activeId"
+          @look-details="emit('look-details', item.presetPayLoad.details)"
           @close="
             emit('change-disable-state', {
               id: item.id,

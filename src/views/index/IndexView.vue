@@ -3,10 +3,13 @@ import { ref } from 'vue'
 import ComMap from './components/map/ComMap.vue'
 import ComControl from './components/control/ComControl.vue'
 import ComList from './components/list/ComList.vue'
+import ComDetails from './components/details/ComDetails.vue'
 import { useLoadPoint } from './composable/loadPoints/index'
+import { useDetails } from './composable/details/index'
 import type { EmitDto } from './types'
 
 const { points, addr, date } = useLoadPoint()
+const { details, detailsLoading, showDetails, loadDetails } = useDetails()
 
 const activeId = ref('')
 const changeDisableState = ({ id, disable }: EmitDto) => {
@@ -24,6 +27,7 @@ const changeDisableState = ({ id, disable }: EmitDto) => {
         v-model:active-id="activeId"
         :points="points"
         @change-disable-state="changeDisableState"
+        @look-details="loadDetails"
       />
     </div>
 
@@ -36,9 +40,15 @@ const changeDisableState = ({ id, disable }: EmitDto) => {
           v-model:active-id="activeId"
           :points="points"
           @change-disable-state="changeDisableState"
+          @look-details="loadDetails"
         />
       </div>
     </div>
+    <ComDetails
+      v-model="showDetails"
+      :loading="detailsLoading"
+      :details="details || undefined"
+    />
   </div>
 </template>
 
