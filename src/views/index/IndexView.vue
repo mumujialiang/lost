@@ -1,17 +1,24 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, type Ref } from 'vue'
+import dayjs from 'dayjs'
+import { initialLocation } from './config'
 import ComMap from './components/map/ComMap.vue'
 import ComControl from './components/control/ComControl.vue'
 import ComList from './components/list/ComList.vue'
 import ComDetails from './components/details/ComDetails.vue'
 import { usePoints } from './composable/points/index'
 import { useDetails } from './composable/details/index'
-
-const { points, addr, date, pointsLoading, location, changeDisableState } =
-  usePoints()
-const { details, detailsLoading, showDetails, loadDetails } = useDetails()
+import type { Location } from './types'
 
 const activeId = ref('')
+const addr = ref('')
+const date = ref(dayjs().format('YYYY-MM-DD'))
+const location: Ref<Location> = ref(initialLocation)
+const { points, pointsLoading, changeDisableState } = usePoints({
+  date,
+  location
+})
+const { details, detailsLoading, showDetails, loadDetails } = useDetails()
 </script>
 
 <template>
