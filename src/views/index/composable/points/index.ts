@@ -9,6 +9,7 @@ export const usePoints = () => {
   const addr = ref('')
   const date = ref(dayjs().format('YYYY-MM-DD'))
   const disablePoints = useStorage<string[]>('disablePoints', [])
+  const pointsLoading = ref(false)
 
   const changeDisableState = ({ id, disable }: EmitDto) => {
     const target = points.value.find(({ id: targetId }) => targetId === id)
@@ -23,7 +24,8 @@ export const usePoints = () => {
   }
 
   api({
-    flag: '/index/queryMapPoints'
+    flag: '/index/queryMapPoints',
+    loadingRef: pointsLoading
   }).then(res => {
     points.value = res.points.map(item => {
       return {
@@ -37,6 +39,7 @@ export const usePoints = () => {
     points,
     addr,
     date,
-    changeDisableState
+    changeDisableState,
+    pointsLoading
   }
 }

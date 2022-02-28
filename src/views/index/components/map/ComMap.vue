@@ -3,6 +3,7 @@ import ComInfoWindow from './components/infoWindow/ComInfoWindow.vue'
 import { useInitMap } from '@/common/composable/initMap/index'
 import { usePointCover } from './composable/pointCover/index'
 import { useImgCover } from './composable/imgCover/index'
+import { useLoading } from './composable/loading/index'
 import { toRef } from 'vue'
 import type { ApiResponse } from '@http'
 import type { Emits } from './types'
@@ -10,6 +11,7 @@ import type { Emits } from './types'
 const props = defineProps<{
   points: ApiResponse<'/index/queryMapPoints'>['points']
   activeId: string
+  loading: boolean
 }>()
 
 const rawEmit = defineEmits([
@@ -28,11 +30,17 @@ const { imgElements } = useImgCover({
   mapPromise,
   points: toRef(props, 'points')
 })
+const { loadingElement } = useLoading()
 </script>
 
 <template>
   <div class="wrap">
     <div ref="mapElement" class="map"></div>
+    <transition name="fade">
+      <div v-show="props.loading" class="load-state">
+        <div ref="loadingElement" class="inner"></div>
+      </div>
+    </transition>
     <div
       v-for="(item, index) in props.points"
       :key="item.id"
@@ -95,6 +103,26 @@ const { imgElements } = useImgCover({
   height: 100%;
 }
 
+.load-state {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  pointer-events: none;
+  .inner {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    transform: scale(3);
+  }
+}
+
 .point {
   position: relative;
   display: flex;
@@ -117,5 +145,19 @@ const { imgElements } = useImgCover({
       transform: scale(1.3);
     }
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.4s ease;
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.fade-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
 }
 </style>

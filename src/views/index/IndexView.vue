@@ -7,7 +7,7 @@ import ComDetails from './components/details/ComDetails.vue'
 import { usePoints } from './composable/points/index'
 import { useDetails } from './composable/details/index'
 
-const { points, addr, date, changeDisableState } = usePoints()
+const { points, addr, date, pointsLoading, changeDisableState } = usePoints()
 const { details, detailsLoading, showDetails, loadDetails } = useDetails()
 
 const activeId = ref('')
@@ -18,6 +18,7 @@ const activeId = ref('')
     <div class="map-wrap">
       <ComMap
         v-model:active-id="activeId"
+        :loading="pointsLoading"
         :points="points"
         @change-disable-state="changeDisableState"
         @look-details="loadDetails"
