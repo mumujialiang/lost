@@ -1,4 +1,4 @@
-import { ref, type Ref } from 'vue'
+import { ref, watchEffect, type Ref } from 'vue'
 import { useStorage } from '@vueuse/core'
 import { api, type ApiResponse } from '@http'
 import type { EmitDto } from '../../types'
@@ -21,11 +21,16 @@ export const usePoints = ({ date, location }: UsePointsArg) => {
     }
   }
 
-  api({
-    flag: '/index/queryMapPoints',
-    loadingRef: pointsLoading
-  }).then(res => {
-    points.value = res.points.map(item => {
+  watchEffect(async () => {
+    const response = await api({
+      flag: '/index/queryMapPoints',
+      loadingRef: pointsLoading,
+      data: {
+        date: date.value,
+        location: location.value
+      }
+    })
+    points.value = response.points.map(item => {
       return {
         ...item,
         disable: disablePoints.value.includes(item.id)

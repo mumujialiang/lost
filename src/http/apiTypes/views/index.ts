@@ -8,6 +8,13 @@
 
 export interface Index {
   queryMapPoints: {
+    request: {
+      date: string
+      location: {
+        lat: [number, number]
+        lng: [number, number]
+      }
+    }
     response: {
       points: {
         lng: number
