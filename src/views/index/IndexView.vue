@@ -8,12 +8,16 @@ import ComList from './components/list/ComList.vue'
 import ComDetails from './components/details/ComDetails.vue'
 import { usePoints } from './composable/points/index'
 import { useDetails } from './composable/details/index'
+import { useAddr } from './composable/addr/index'
 import type { Location } from './types'
 
 const activeId = ref('')
-const addr = ref('')
 const date = ref(dayjs().format('YYYY-MM-DD'))
 const location: Ref<Location> = ref(initialLocation)
+const comMapRef = ref<InstanceType<typeof ComMap> | null>(null)
+const { addr, changeAddr } = useAddr({
+  comMapRef
+})
 const { points, pointsLoading, changeDisableState } = usePoints({
   date,
   location
@@ -25,6 +29,7 @@ const { details, detailsLoading, showDetails, loadDetails } = useDetails()
   <div class="page">
     <div class="map-wrap">
       <ComMap
+        ref="comMapRef"
         v-model:active-id="activeId"
         v-model:location="location"
         :loading="pointsLoading"
@@ -36,7 +41,11 @@ const { details, detailsLoading, showDetails, loadDetails } = useDetails()
 
     <div class="sidebar">
       <div class="control">
-        <ComControl v-model:addr="addr" v-model:date="date" />
+        <ComControl
+          v-model:addr="addr"
+          v-model:date="date"
+          @change-addr="changeAddr"
+        />
       </div>
       <div class="list">
         <ComList

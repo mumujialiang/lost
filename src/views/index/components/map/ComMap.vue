@@ -7,7 +7,7 @@ import { useLoading } from './composable/loading/index'
 import { useShadeCover } from './composable/shadeCover/index'
 import { toRef } from 'vue'
 import type { ApiResponse } from '@http'
-import type { Emits } from './types'
+import type { Emits, SetCenter } from './types'
 
 const props = defineProps<{
   points: ApiResponse<'/index/queryMapPoints'>['points']
@@ -37,6 +37,21 @@ const { loadingElement } = useLoading()
 useShadeCover({
   mapPromise,
   emit
+})
+
+const setCenter: SetCenter = ({ lat, lng }, callback = () => null) => {
+  mapPromise
+    .then(({ map }) => {
+      map.setCenter([lng, lat])
+      callback(true)
+    })
+    .catch(() => {
+      callback(false)
+    })
+}
+
+defineExpose({
+  setCenter
 })
 </script>
 

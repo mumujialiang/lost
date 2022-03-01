@@ -7,9 +7,10 @@ const props = defineProps<{
   date: string
 }>()
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'update:addr', addr: string): void
   (e: 'update:date', date: string): void
+  (e: 'change-addr'): void
 }>()
 
 const { querySearch } = useSearch()
@@ -32,7 +33,8 @@ const disabledDate = (time: Date) => {
           :trigger-on-focus="false"
           placeholder="请输入"
           style="width: 100%"
-          @update:model-value="$emit('update:addr', $event)"
+          @update:model-value="emit('update:addr', $event)"
+          @change="emit('change-addr')"
         />
       </el-form-item>
       <el-form-item label="丢失时间">
@@ -45,7 +47,7 @@ const disabledDate = (time: Date) => {
           :editable="false"
           :clearable="false"
           :disabled-date="disabledDate"
-          @update:model-value="$emit('update:date', $event)"
+          @update:model-value="emit('update:date', $event)"
         ></el-date-picker>
       </el-form-item>
     </el-form>

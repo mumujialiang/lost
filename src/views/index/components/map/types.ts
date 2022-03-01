@@ -10,3 +10,10 @@ export type Emits = {
     value: ApiResponse<'/index/queryMapPoints'>['points'][number]['presetPayLoad']['details']
   ): void
 }
+
+export interface SetCenter {
+  (
+    arg: { lat: number; lng: number },
+    callback?: (result: boolean) => void
+  ): void
+}
