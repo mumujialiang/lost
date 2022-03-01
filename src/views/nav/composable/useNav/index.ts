@@ -7,7 +7,7 @@ import CarbonInformationSquare from '~icons/carbon/information-square'
 import CarbonEdit from '~icons/carbon/edit'
 
 const createNavOption = () => {
-  const parentPath = '/menu'
+  const parentPath = '/nav'
   const option = [
     {
       label: '找失物',
