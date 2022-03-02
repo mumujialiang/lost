@@ -10,7 +10,7 @@ import CarbonUserAvatar from '~icons/carbon/user-avatar'
       </div>
     </template>
     <div class="list">
-      <router-link class="user" to="/menu/user/account"> 个人中心 </router-link>
+      <router-link class="user" to="/nav/user/account"> 个人中心 </router-link>
       <div class="logout">退出登录</div>
     </div>
   </el-popover>

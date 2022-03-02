@@ -47,6 +47,35 @@ const router = createRouter({
             title: '留言'
           },
           component: () => import('../views/leaveWord/LeaveWordView.vue')
+        },
+        {
+          path: 'user',
+          meta: {
+            title: '个人中心'
+          },
+          component: () => import('../views/user/UserView.vue'),
+          children: [
+            {
+              path: 'account',
+              component: () =>
+                import('../views/user/components/account/ComAccount.vue')
+            },
+            {
+              path: 'posting',
+              component: () =>
+                import('../views/user/components/posting/ComPosting.vue')
+            },
+            {
+              path: 'contact',
+              component: () =>
+                import('../views/user/components/contact/ComContact.vue')
+            },
+            {
+              path: 'system',
+              component: () =>
+                import('../views/user/components/system/ComSystem.vue')
+            }
+          ]
         }
       ]
     },
