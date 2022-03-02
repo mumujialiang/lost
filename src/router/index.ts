@@ -26,6 +26,13 @@ const router = createRouter({
             title: '发布信息'
           },
           component: () => import('../views/posting/PostingView.vue')
+        },
+        {
+          path: 'friendLink',
+          meta: {
+            title: '友情链接'
+          },
+          component: () => import('../views/friendLink/FriendLinkView.vue')
         }
       ]
     },
