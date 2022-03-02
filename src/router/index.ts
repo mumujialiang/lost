@@ -33,6 +33,13 @@ const router = createRouter({
             title: '友情链接'
           },
           component: () => import('../views/friendLink/FriendLinkView.vue')
+        },
+        {
+          path: 'about',
+          meta: {
+            title: '关于我们'
+          },
+          component: () => import('../views/about/AboutView.vue')
         }
       ]
     },
