@@ -1,5 +1,6 @@
 import type { Index } from './views/index'
 import type { Posting } from './views/posting'
+import type { LeaveWord } from './views/leaveWord'
 import type { Test } from './views/test'
 
 type AddPrefix<prefix extends string, T> = {
@@ -23,8 +24,15 @@ export type TestMockApi = AddDefaultPreset<Test>
 export type TestMockApiHasPrefix = AddPrefix<'test', TestMockApi>
 export type PostingMockApi = AddDefaultPreset<Posting>
 export type PostingMockApiHasPrefix = AddPrefix<'posting', PostingMockApi>
+export type LeaveWordMockApi = AddDefaultPreset<LeaveWord>
+export type LeaveWordMockApiHasPrefix = AddPrefix<'leaveWord', LeaveWordMockApi>
 
-export type AllApi = IndexMockApi & TestMockApi & PostingMockApi
+export type AllApi = IndexMockApi &
+  TestMockApi &
+  PostingMockApi &
+  LeaveWordMockApi
+
 export type AllApiHasPrefix = IndexMockApiHasPrefix &
   TestMockApiHasPrefix &
-  PostingMockApiHasPrefix
+  PostingMockApiHasPrefix &
+  LeaveWordMockApiHasPrefix

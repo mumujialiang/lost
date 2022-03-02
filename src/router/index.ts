@@ -40,6 +40,13 @@ const router = createRouter({
             title: '关于我们'
           },
           component: () => import('../views/about/AboutView.vue')
+        },
+        {
+          path: 'leaveWord',
+          meta: {
+            title: '留言'
+          },
+          component: () => import('../views/leaveWord/LeaveWordView.vue')
         }
       ]
     },
