@@ -1,9 +1,11 @@
 import type { MockMethod } from 'vite-plugin-mock'
 import { index } from './views'
+import { posting } from './views/posting'
 import { test } from './views/test'
 
 const map = {
   index,
+  posting,
   test
 }
 

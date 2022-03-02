@@ -1,4 +1,5 @@
 import type { Index } from './views/index'
+import type { Posting } from './views/posting'
 import type { Test } from './views/test'
 
 type AddPrefix<prefix extends string, T> = {
@@ -20,6 +21,10 @@ export type IndexMockApi = AddDefaultPreset<Index>
 export type IndexMockApiHasPrefix = AddPrefix<'index', IndexMockApi>
 export type TestMockApi = AddDefaultPreset<Test>
 export type TestMockApiHasPrefix = AddPrefix<'test', TestMockApi>
+export type PostingMockApi = AddDefaultPreset<Posting>
+export type PostingMockApiHasPrefix = AddPrefix<'posting', PostingMockApi>
 
-export type AllApi = IndexMockApi & TestMockApi
-export type AllApiHasPrefix = IndexMockApiHasPrefix & TestMockApiHasPrefix
+export type AllApi = IndexMockApi & TestMockApi & PostingMockApi
+export type AllApiHasPrefix = IndexMockApiHasPrefix &
+  TestMockApiHasPrefix &
+  PostingMockApiHasPrefix

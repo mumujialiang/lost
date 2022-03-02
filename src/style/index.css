@@ -35,7 +35,7 @@
   --g-border-radius-sm: 2px;
 
   --g-transition-duration: 0.3s;
-  --g-box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+  --g-box-shadow: 0 0 5px #00000030;
 
   --g-color-primary: #409eff;
   --g-color-success: #67c23a;

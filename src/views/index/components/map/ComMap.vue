@@ -23,7 +23,10 @@ const rawEmit = defineEmits([
 ])
 const emit: Emits = rawEmit
 
-const { mapElement, mapPromise } = useInitMap()
+const { mapElement, mapPromise } = useInitMap([
+  'AMap.Geolocation',
+  'AMap.MoveAnimation'
+])
 const { pointElements } = usePointCover({
   mapPromise,
   points: toRef(props, 'points')

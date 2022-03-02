@@ -19,6 +19,13 @@ const router = createRouter({
             title: '首页'
           },
           component: () => import('../views/index/IndexView.vue')
+        },
+        {
+          path: 'posting',
+          meta: {
+            title: '发布信息'
+          },
+          component: () => import('../views/posting/PostingView.vue')
         }
       ]
     },

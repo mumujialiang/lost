@@ -40,22 +40,20 @@ const createdSetCurrentPosition: CreatedSetCurrentPosition = ({
   return setCurrentPosition
 }
 
-const loadMapPlugins = [
+const defaultLoadMapPlugins = [
   'AMap.Scale',
   'AMap.Geocoder',
   'AMap.Scale',
-  'AMap.MapType',
-  'AMap.Geolocation',
-  'AMap.MoveAnimation'
+  'AMap.MapType'
 ]
 
-export const useInitMap = () => {
+export const useInitMap = (loadMapPlugins = defaultLoadMapPlugins) => {
   const mapElement: MapElement = ref(null)
 
   const mapPromise: MapPromise = new Promise(resolve => {
     onMounted(() => {
       loadMap({
-        plugins: loadMapPlugins
+        plugins: [...new Set([...loadMapPlugins, ...defaultLoadMapPlugins])]
       }).then(AMap => {
         const map = createdMap({
           AMap,
