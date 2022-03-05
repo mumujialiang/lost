@@ -19,4 +19,7 @@ export interface Contact {
       }[]
     }
   }
+  remove: {
+    response: unknown
+  }
 }

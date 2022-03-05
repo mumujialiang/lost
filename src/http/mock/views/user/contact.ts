@@ -55,5 +55,12 @@ export const contact: UrlMap<ContactMockApi> = {
         ]
       }
     }
+  },
+  remove: {
+    response: () => {
+      return {
+        example: 123
+      }
+    }
   }
 }

@@ -12,8 +12,18 @@ export const useList = () => {
     list.value = res.list
   })
 
+  const removeItem = (ajaxData: unknown) => {
+    api({
+      flag: '/user/contact/remove',
+      data: ajaxData,
+      showLoading: true,
+      responseText: '删除成功'
+    })
+  }
+
   return {
     list,
-    listLoading
+    listLoading,
+    removeItem
   }
 }

@@ -3,7 +3,7 @@ import { View, Phone } from '@element-plus/icons-vue'
 import ComHasStateCard from '@/common/components/hasStateCard/ComHasStateCard.vue'
 import { useList } from './composable/list'
 
-const { list, listLoading } = useList()
+const { list, listLoading, removeItem } = useList()
 </script>
 
 <template>
@@ -14,6 +14,7 @@ const { list, listLoading } = useList()
           :img="item.img"
           :show-close="item.showClose"
           :mask="item.mask"
+          @remove="removeItem(item.ajaxData.remove)"
         >
           <div class="time">当前状态：{{ item.state }}</div>
           <div class="btn-group">
