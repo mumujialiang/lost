@@ -9,6 +9,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'update:model-value', value: boolean): void
+  (e: 'report', value: unknown): void
 }>()
 </script>
 
@@ -38,7 +39,12 @@ const emit = defineEmits<{
             <p>申请编号：{{ item.id }}</p>
           </div>
           <div class="btn-group">
-            <el-button type="danger">举报他/她</el-button>
+            <el-button
+              type="danger"
+              @click="emit('report', item.ajaData.report)"
+            >
+              举报他/她
+            </el-button>
           </div>
         </div>
       </div>

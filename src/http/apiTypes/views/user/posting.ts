@@ -30,10 +30,16 @@ export interface Posting {
         name: string
         tel: string
         time: string
+        ajaData: {
+          report: unknown
+        }
       }[]
     }
   }
   remove: {
-    response: Record<string, unknown>
+    response: unknown
+  }
+  report: {
+    response: unknown
   }
 }

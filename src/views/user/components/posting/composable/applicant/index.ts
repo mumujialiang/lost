@@ -24,10 +24,20 @@ export const useApplicant = () => {
       })
     }
   }
+
+  const report = (data: unknown) => {
+    api({
+      flag: '/user/posting/report',
+      data,
+      showLoading: true,
+      responseText: '举报成功'
+    })
+  }
   return {
     showApplicant,
     applicantLoading,
     applicantList,
-    loadApplicant
+    loadApplicant,
+    report
   }
 }

@@ -64,7 +64,12 @@ export const posting: UrlMap<UserPostingMockApi> = {
           img: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
           name: '林嘉亮',
           tel: '13232323232',
-          time: '2020-16-12'
+          time: '2020-16-12',
+          ajaData: {
+            report: {
+              example: 123
+            }
+          }
         }))
       return {
         list
@@ -72,6 +77,13 @@ export const posting: UrlMap<UserPostingMockApi> = {
     }
   },
   remove: {
+    response: () => {
+      return {
+        example: 123
+      }
+    }
+  },
+  report: {
     response: () => {
       return {
         example: 123

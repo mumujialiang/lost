@@ -1,5 +1,4 @@
 import axios from 'axios'
-import lodashMerge from 'lodash-es/merge'
 import { defaultOption } from './defaultOption'
 import { exceptionHandle } from './exception'
 import { setLoading } from './loading'
@@ -16,7 +15,10 @@ export const api = <T extends keyof AllApiHasPrefix>(
     data?: AllApiHasPrefix[T]['request']
   } & Partial<Omit<RequestOption, 'flag' | 'data'>>
 ) => {
-  const mixedOption = lodashMerge(defaultOption, option) as RequestOption
+  const mixedOption = {
+    ...defaultOption,
+    ...option
+  } as RequestOption
 
   const promise = new Promise((resolve, reject) => {
     axios({

@@ -6,8 +6,13 @@ import { useList } from './composable/list/index'
 import { useApplicant } from './composable/applicant/index'
 
 const { list, listLoading, removeItem } = useList()
-const { applicantList, applicantLoading, showApplicant, loadApplicant } =
-  useApplicant()
+const {
+  applicantList,
+  applicantLoading,
+  showApplicant,
+  loadApplicant,
+  report
+} = useApplicant()
 </script>
 
 <template>
@@ -41,6 +46,7 @@ const { applicantList, applicantLoading, showApplicant, loadApplicant } =
       v-model="showApplicant"
       :list="applicantList"
       :loading="applicantLoading"
+      @report="report"
     />
   </div>
 </template>
