@@ -2,12 +2,14 @@ import type { MockMethod } from 'vite-plugin-mock'
 import { index } from './views'
 import { posting } from './views/posting'
 import { leaveWord } from './views/leaveWord'
+import { posting as userPosting } from './views/user/posting'
 import { test } from './views/test'
 
 const map = {
   index,
   posting,
   leaveWord,
+  'user/posting': userPosting,
   test
 }
 
