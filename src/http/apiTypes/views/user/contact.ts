@@ -33,4 +33,7 @@ export interface Contact {
       lng: number
     }
   }
+  upload: {
+    response: unknown
+  }
 }

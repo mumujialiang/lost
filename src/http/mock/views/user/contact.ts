@@ -75,5 +75,10 @@ export const contact: UrlMap<ContactMockApi> = {
         lng: 113.40036
       }
     }
+  },
+  upload: {
+    response: () => {
+      return {}
+    }
   }
 }
