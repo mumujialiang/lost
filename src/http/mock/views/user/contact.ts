@@ -62,5 +62,18 @@ export const contact: UrlMap<ContactMockApi> = {
         example: 123
       }
     }
+  },
+  details: {
+    response: () => {
+      return {
+        id: String(Math.floor(Math.random() * 10)),
+        applicationId: '321',
+        img: 'https://tse1-mm.cn.bing.net/th/id/R-C.14b4b74e379683bd23230006fe98567d?rik=R1GP9ELf5%2ftOEg&riu=http%3a%2f%2fimg.keaitupian.cn%2fuploads%2f2020%2f10%2f15%2f69b37a9935dd4c9e8e2ba7d1990d5a53.jpg&ehk=nEx9koLXtYAN%2bQJr4SLVQ7LJNdfKzrS1%2fxsna%2bjnJf8%3d&risl=&pid=ImgRaw&r=0',
+        time: '2022-03-06',
+        description: '123',
+        lat: 23.19272,
+        lng: 113.40036
+      }
+    }
   }
 }

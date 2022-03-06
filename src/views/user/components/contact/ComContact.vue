@@ -1,9 +1,12 @@
 <script lang="ts" setup>
 import { View, Phone } from '@element-plus/icons-vue'
 import ComHasStateCard from '@/common/components/hasStateCard/ComHasStateCard.vue'
+import ComDetails from './components/details/ComDetails.vue'
 import { useList } from './composable/list'
+import { useDetails } from './composable/details'
 
 const { list, listLoading, removeItem } = useList()
+const { showDetails, info, detailsLoading, onCheckDetails } = useDetails()
 </script>
 
 <template>
@@ -18,7 +21,13 @@ const { list, listLoading, removeItem } = useList()
         >
           <div class="time">当前状态：{{ item.state }}</div>
           <div class="btn-group">
-            <el-button class="el-button" :icon="View">查看</el-button>
+            <el-button
+              class="el-button"
+              :icon="View"
+              @click="onCheckDetails(item.ajaxData.view)"
+            >
+              查看
+            </el-button>
             <el-button class="el-button" :icon="Phone" type="primary">
               获取联系电话
             </el-button>
@@ -26,6 +35,7 @@ const { list, listLoading, removeItem } = useList()
         </ComHasStateCard>
       </el-col>
     </el-row>
+    <ComDetails v-model="showDetails" :loading="detailsLoading" :info="info" />
   </div>
 </template>
 

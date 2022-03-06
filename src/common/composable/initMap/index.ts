@@ -44,7 +44,8 @@ const defaultLoadMapPlugins = [
   'AMap.Scale',
   'AMap.Geocoder',
   'AMap.Scale',
-  'AMap.MapType'
+  'AMap.MapType',
+  'AMap.Geolocation'
 ]
 
 export const useInitMap = (loadMapPlugins = defaultLoadMapPlugins) => {

@@ -22,4 +22,15 @@ export interface Contact {
   remove: {
     response: unknown
   }
+  details: {
+    response: {
+      id: string
+      applicationId: string
+      img: string
+      time: string
+      description: string
+      lat: number
+      lng: number
+    }
+  }
 }
