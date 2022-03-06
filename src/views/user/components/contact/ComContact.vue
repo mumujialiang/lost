@@ -2,11 +2,14 @@
 import { View, Phone } from '@element-plus/icons-vue'
 import ComHasStateCard from '@/common/components/hasStateCard/ComHasStateCard.vue'
 import ComDetails from './components/details/ComDetails.vue'
+import ComStep from './components/step/ComStep.vue'
 import { useList } from './composable/list'
 import { useDetails } from './composable/details'
+import { useStep } from './composable/step'
 
 const { list, listLoading, removeItem } = useList()
 const { showDetails, info, detailsLoading, onCheckDetails } = useDetails()
+const { showStep, stepLoading, onStepHandle } = useStep()
 </script>
 
 <template>
@@ -28,7 +31,12 @@ const { showDetails, info, detailsLoading, onCheckDetails } = useDetails()
             >
               查看
             </el-button>
-            <el-button class="el-button" :icon="Phone" type="primary">
+            <el-button
+              class="el-button"
+              :icon="Phone"
+              type="primary"
+              @click="onStepHandle"
+            >
               获取联系电话
             </el-button>
           </div>
@@ -36,6 +44,7 @@ const { showDetails, info, detailsLoading, onCheckDetails } = useDetails()
       </el-col>
     </el-row>
     <ComDetails v-model="showDetails" :loading="detailsLoading" :info="info" />
+    <ComStep v-model="showStep" :loading="stepLoading" />
   </div>
 </template>
 
