@@ -14,7 +14,7 @@ const emit = defineEmits<{
 }>()
 
 const getComponentName = () => {
-  return ComUpload
+  return ComWait
 }
 </script>
 
@@ -25,7 +25,7 @@ const getComponentName = () => {
     width="800px"
     @update:model-value="emit('update:model-value', $event)"
   >
-    <el-steps :space="200" :active="0" simple>
+    <el-steps :space="200" :active="1" simple>
       <el-step title="上传备案资料" :icon="Upload"></el-step>
       <el-step title="等待人工审核" :icon="AlarmClock"></el-step>
       <el-step title="获得联系电话" :icon="Phone"></el-step>
