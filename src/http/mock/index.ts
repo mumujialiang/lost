@@ -4,6 +4,7 @@ import { posting } from './views/posting'
 import { leaveWord } from './views/leaveWord'
 import { posting as userPosting } from './views/user/posting'
 import { contact } from './views/user/contact'
+import { login } from './views/login'
 import { test } from './views/test'
 
 const map = {
@@ -12,6 +13,7 @@ const map = {
   leaveWord,
   'user/posting': userPosting,
   'user/contact': contact,
+  login,
   test
 }
 

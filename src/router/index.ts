@@ -49,6 +49,13 @@ const router = createRouter({
           component: () => import('../views/leaveWord/LeaveWordView.vue')
         },
         {
+          path: 'login',
+          meta: {
+            title: '登录'
+          },
+          component: () => import('../views/login/LoginView.vue')
+        },
+        {
           path: 'user',
           meta: {
             title: '个人中心'

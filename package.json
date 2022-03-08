@@ -28,7 +28,8 @@
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.11",
     "vue": "^3.2.29",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vue3-slide-verify": "^1.1.0"
   },
   "devDependencies": {
     "@amap/amap-jsapi-types": "^0.0.8",
