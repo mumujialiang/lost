@@ -5,6 +5,7 @@ import { leaveWord } from './views/leaveWord'
 import { posting as userPosting } from './views/user/posting'
 import { contact } from './views/user/contact'
 import { login } from './views/login'
+import { register } from './views/register'
 import { test } from './views/test'
 
 const map = {
@@ -14,6 +15,7 @@ const map = {
   'user/posting': userPosting,
   'user/contact': contact,
   login,
+  register,
   test
 }
 

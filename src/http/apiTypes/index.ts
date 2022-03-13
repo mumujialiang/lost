@@ -4,6 +4,7 @@ import type { LeaveWord } from './views/leaveWord'
 import type { Posting as UserPosting } from './views/user/posting'
 import type { Contact } from './views/user/contact'
 import type { Login } from './views/login'
+import type { Register } from './views/register'
 import type { Test } from './views/test'
 
 type AddPrefix<prefix extends string, T> = {
@@ -38,6 +39,8 @@ export type ContactMockApi = AddDefaultPreset<Contact>
 export type ContactMockApiHasPrefix = AddPrefix<'user/contact', ContactMockApi>
 export type LoginMockApi = AddDefaultPreset<Login>
 export type LoginMockApiHasPrefix = AddPrefix<'login', LoginMockApi>
+export type RegisterMockApi = AddDefaultPreset<Register>
+export type RegisterMockApiHasPrefix = AddPrefix<'register', RegisterMockApi>
 
 export type AllApi = IndexMockApi &
   TestMockApi &
@@ -45,7 +48,8 @@ export type AllApi = IndexMockApi &
   LeaveWordMockApi &
   UserPostingMockApi &
   ContactMockApi &
-  LoginMockApi
+  LoginMockApi &
+  RegisterMockApi
 
 export type AllApiHasPrefix = IndexMockApiHasPrefix &
   TestMockApiHasPrefix &
@@ -53,4 +57,5 @@ export type AllApiHasPrefix = IndexMockApiHasPrefix &
   LeaveWordMockApiHasPrefix &
   UserPostingMockApiHasPrefix &
   ContactMockApiHasPrefix &
-  LoginMockApiHasPrefix
+  LoginMockApiHasPrefix &
+  RegisterMockApiHasPrefix
