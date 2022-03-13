@@ -23,4 +23,9 @@ onMounted(() => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.lottie-wrap,
+.lottie {
+  height: 100%;
+}
+</style>

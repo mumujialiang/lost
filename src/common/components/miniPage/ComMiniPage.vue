@@ -20,7 +20,9 @@ import ComSidebar from './components/sidebar/ComSidebar.vue'
   @include common-page;
   display: flex;
   .left {
+    display: flex;
     flex: 3;
+    align-items: center;
   }
   .right {
     display: flex;
