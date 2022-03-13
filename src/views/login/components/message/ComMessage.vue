@@ -2,7 +2,7 @@
 import { ElForm } from 'element-plus'
 import { telPrefixOption } from '@/common/js/control'
 import { rules } from './config'
-import { useCountDown } from './composable/countDown'
+import { useCountDown } from '@/common/composable/countDown'
 import { useVerify } from './composable/verify'
 
 const { countDownInit, countDown, countDownHandle } = useCountDown()
